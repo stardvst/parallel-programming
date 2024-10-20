@@ -4,6 +4,9 @@
 
 struct pack_t
 {
+  // Using alignas(64) on both members will get rid of false sharing,
+  // as it will align ying to the start of a cache line, and will
+  // ensure yang starts in its own cache line
   uint64_t ying{};
   uint64_t yang{};
 };
