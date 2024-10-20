@@ -1,4 +1,4 @@
-#include "../../include/hpc_helpers.h"
+#include "hpc_helpers.h"
 #include <thread>
 #include <iostream>
 
