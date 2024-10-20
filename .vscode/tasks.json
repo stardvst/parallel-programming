@@ -18,6 +18,8 @@
         "-fcolor-diagnostics",
         "-std=c++20",
         "-O2", // Optimized build (for release)
+        "-I",
+        "${workspaceFolder}/include",
         "${workspaceFolder}/${relativeFileDirname}/*.cpp",
         "-o",
         "${workspaceFolder}/build/${relativeFileDirname}/main"
