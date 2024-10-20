@@ -1,0 +1,8 @@
+*
+!*.*
+!*/
+
+*.dSYM
+settings.json
+.DS_Store
+build

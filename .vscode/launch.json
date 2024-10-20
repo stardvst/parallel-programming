@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Active Folder (Debug Build)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${relativeFileDirname}/main_debug",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/${relativeFileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb", // Use LLDB as the debugger
+      "preLaunchTask": "C/C++: clang++ debug build active folder", // Reference to debug build task
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "name": "Run Release Build",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/${relativeFileDirname}/main", // Release binary
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/${relativeFileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb", // Use LLDB for the release build too
+      "preLaunchTask": "C/C++: clang++ release build active folder", // Reference to release build task
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

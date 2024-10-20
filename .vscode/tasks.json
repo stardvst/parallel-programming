@@ -1,0 +1,66 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "C/C++: create build folder for current folder",
+      "command": "mkdir -p ./build/${relativeFileDirname}", // Create directories first
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "type": "shell",
+      "label": "C/C++: clang++ release build active folder",
+      "command": "/usr/bin/clang++",
+      "args": [
+        "-fcolor-diagnostics",
+        "-std=c++20",
+        "-O2", // Optimized build (for release)
+        "${workspaceFolder}/${relativeFileDirname}/*.cpp",
+        "-o",
+        "${workspaceFolder}/build/${relativeFileDirname}/main"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Builds a release version using clang++",
+      "dependsOn": "C/C++: create build folder for current folder"
+    },
+    {
+      "type": "shell",
+      "label": "C/C++: clang++ debug build active folder",
+      "command": "/usr/bin/clang++",
+      "args": [
+        "-fcolor-diagnostics",
+        "-std=c++20",
+        "-g", // Enable debug symbols
+        "-O0", // Disable optimizations for easier debugging
+        "${workspaceFolder}/${relativeFileDirname}/*.cpp",
+        "-o",
+        "${workspaceFolder}/build/${relativeFileDirname}/main_debug" // Separate binary for debug build
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "detail": "Builds a debug version using clang++",
+      "dependsOn": "C/C++: create build folder for current folder"
+    }
+  ],
+  "version": "2.0.0"
+}
